@@ -118,42 +118,40 @@ The models were evaluated based on accuracy, recall, F1 score, and confusion mat
 Model performance will be visualized using confusion matrices, which display the counts of each error type made by the model during the classification task. In these plots, 0 represents INFP and 1 represents INFJ.
 
 **Logistic Regression:**  
-SentenceTransformer approach: Speed = 5.541228, Accuracy = 0.5290, Recall = 0.5290, F1 Score = 0.528958
-Lemmatization + TF-IDF approach: Speed = 1.895791, Accuracy = 0.5535, Recall = 0.5535, F1 Score = 0.548725
+SentenceTransformer approach: Speed = 5.541228, Accuracy = 0.5290, Recall = 0.5290, F1 Score = 0.528958  
+Lemmatization + TF-IDF approach: Speed = 1.895791, Accuracy = 0.5535, Recall = 0.5535, F1 Score = 0.548725  
 
 ![SnTrnfrmrLRConfMat.png](/Images/SnTrnfrmrLRConfMat.png) 
-
 ![TFIDFLRConfMat.png](/Images/TFIDFLRConfMat.png)
-
-**SVC:** 
-SentenceTransformer approach: Speed = 33.494465, Accuracy = 0.5525, Recall = 0.5525, F1 Score = 0.552454
-Lemmatization + TF-IDF approach: Speed = 7.588776, Accuracy = 0.5735, Recall = 0.5735, F1 Score = 0.572964
-
+  
+**SVC:**   
+SentenceTransformer approach: Speed = 33.494465, Accuracy = 0.5525, Recall = 0.5525, F1 Score = 0.552454  
+Lemmatization + TF-IDF approach: Speed = 7.588776, Accuracy = 0.5735, Recall = 0.5735, F1 Score = 0.572964  
+  
 ![SnTrnfrmrSVCConfMat.png](/Images/SnTrnfrmrSVCConfMat.png)  
-
 ![TFIDFSVCConfMat.png](/Images/TFIDFSVCConfMat.png)
-
-**Decision Tree:** 
-SentenceTransformer approach: Speed = 15.428351, Accuracy = 0.5405, Recall = 0.5405, F1 Score = 0.540497
-Lemmatization + TF-IDF approach: Speed = 2.613449, Accuracy = 0.5710, Recall = 0.5710, F1 Score = 0.570961
-
+  
+**Decision Tree:**   
+SentenceTransformer approach: Speed = 15.428351, Accuracy = 0.5405, Recall = 0.5405, F1 Score = 0.540497  
+Lemmatization + TF-IDF approach: Speed = 2.613449, Accuracy = 0.5710, Recall = 0.5710, F1 Score = 0.570961  
+  
 ![SnTrnfrmrDTConfMat.png](/Images/SnTrnfrmrDTConfMat.png)  
 ![TFIDFDTConfMat.png](/Images/TFIDFDTConfMat.png)
-
-**Naive Bayes:**  
-SentenceTransformer approach: Speed = 0.168367, Accuracy = 0.5335, Recall = 0.5335, F1 Score = 0.530365
-Lemmatization + TF-IDF approach: Speed = 0.028872, Accuracy = 0.5670, Recall = 0.5670, F1 Score = 0.566561
-
+  
+**Naive Bayes:**    
+SentenceTransformer approach: Speed = 0.168367, Accuracy = 0.5335, Recall = 0.5335, F1 Score = 0.530365  
+Lemmatization + TF-IDF approach: Speed = 0.028872, Accuracy = 0.5670, Recall = 0.5670, F1 Score = 0.566561  
+  
 ![SnTrnfrmrNBConfMat.png](/Images/SnTrnfrmrNBConfMat.png)  
 ![TFIDFNBConfMat.png](/Images/TFIDFNBConfMat.png)
-
-**Random Forest:**
-SentenceTransformer approach: Speed = 348.468205, Accuracy = 0.5685, Recall = 0.5685, F1 Score = 0.568155
-Lemmatization + TF-IDF approach: Speed = 80.851408, Accuracy = 0.5665, Recall = 0.5665, F1 Score = 0.566046
-
-![SnTrnfrmrRFConfMat.png](/Images/SnTrnfrmrRFConfMat.png)  
-![TFIDFRFConfMat.png](/Images/TFIDFRFConfMat.png)
-
+  
+**Random Forest:**  
+SentenceTransformer approach: Speed = 348.468205, Accuracy = 0.5685, Recall = 0.5685, F1 Score = 0.568155  
+Lemmatization + TF-IDF approach: Speed = 80.851408, Accuracy = 0.5665, Recall = 0.5665, F1 Score = 0.566046  
+  
+![SnTrnfrmrRFConfMat.png](/Images/SnTrnfrmrRFConfMat.png)    
+![TFIDFRFConfMat.png](/Images/TFIDFRFConfMat.png)  
+  
 A comprehensive analysis and assessment of the top-performing model are provided in the Results and Conclusions section of the Executive Summary above.
 
 
