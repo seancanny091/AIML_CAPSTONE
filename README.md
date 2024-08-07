@@ -13,13 +13,18 @@ In this project, we explored two different approaches to determine a person's My
 
 The Lemmatization + TF-IDF approach outperformed the SentenceTransformer approach across all models. The Support Vector Classifier (SVC) using Lemmatization + TF-IDF achieved the highest accuracy score of 0.5735, recall of 0.5735, and F1 score of 0.572964. This was followed by the Decision Tree and Random Forest models, which also showed strong performance with accuracy scores of 0.5710 and 0.5665, respectively.
 
+[![TFIDFModelResults.png](https://Images/TFIDFModelResults.png)
+[![TFIDFConfMat.png](https://Images/TFIDFConfMat.png)
+
 In contrast, the SentenceTransformer approach did not perform as well. The highest accuracy was observed with the SVC model, achieving a score of 0.5525, while the Random Forest model achieved an accuracy of 0.5515. These results indicate that the Lemmatization + TF-IDF approach captures the textual features more effectively for this particular classification task.
+
+[![SntTrnfrmrModelResults.png](https://Images/SntTrnfrmrModelResults.png)
+[![SntTrnfrmrConfMat.png](https://Images/SntTrnfrmrConfMat.png)
 
 While the Lemmatization + TF-IDF approach provides a more effective feature representation for MBTI classification from text posts compared to SentenceTransformer, neither approach achieved sufficiently high accuracy to be used reliably in real-life applications. The highest accuracy of 0.5735 indicates that there is still significant room for improvement in predicting MBTI types from text.
 
 **Next Steps and Recommendations:**
 Leverage Deep Learning Models:
-
 * Neural Networks: CNNs or RNNs could capture more complex text patterns.
 * Transformers: Models like BERT or GPT, known for state-of-the-art NLP performance, could enhance results.
 
@@ -27,7 +32,7 @@ Hybrid Approaches:
 * Combine TF-IDF with neural embeddings for richer text representation.
 
 Data Augmentation:
-* Increase dataset size and diversity with techniques like paraphrasing and back-translation.
+* Increase dataset size and diversity with techniques like paraphrasing and back-translation. This is especially applicable for the MTBI types for which we have fewer data such as ESTP, ESFP, ESFJ, and ESTJ.
 
 Ensemble Methods:
 * Use ensemble techniques like stacking or boosting to improve robustness and accuracy.
@@ -42,10 +47,16 @@ Understanding a person's Myers-Briggs Type Indicator (MBTI) from their text post
 
 ### Data Sources
 **Dataset**
-The dataset was sourced from Kaggle, containing over 8600 rows of MBTI types and their corresponding social media posts. Each entry provided a rich text-based profile for analysis.
+The dataset was sourced from Kaggle (https://www.kaggle.com/datasets/datasnaek/mbti-type), containing over 8600 rows of MBTI types and their corresponding social media posts. Each entry provided a rich text-based profile for analysis.
 
 **Exploratory Data Analysis:**
-Initial exploration involved understanding the data distribution, characterizing the length of posts, and identifying the unique MBTI types. Visualizations highlighted the imbalance among different personality types, guiding subsequent preprocessing steps.
+Initial exploration involved understanding the data distribution and identifying the unique MBTI types. Visualizations highlighted the imbalance among different personality types, guiding subsequent preprocessing steps.
+
+[![DatasetInfo.png](https://Images/DatasetInfo.png)
+
+[![MBTIDistro.png](https://Images/MBTIDistro.png)
+
+[![DatasetUnique.png](https://Images/DatasetUnique.png)
 
 **Cleaning and Preparation:**
 Data cleaning involved converting text to lowercase, parsing posts into separate rows, and removing URLs, special characters, and numbers. This ensured that the textual data was uniform and ready for analysis.
@@ -53,16 +64,28 @@ Data cleaning involved converting text to lowercase, parsing posts into separate
 **Preprocessing:**
 The dataset was filtered to focus on INFP and INFJ types, balancing the data to improve model performance. Text data was then prepared using two methods: SentenceTransformer for generating embeddings and TF-IDF vectorization for capturing term frequency and importance.
 
+[![INFJINFPPreBal.png](https://Images/INFJINFPPreBal.png)
+
+[![INFJINFPPostBal.png](https://Images/INFJINFPPostBal.png)
+
 **Final Dataset:**
 The final dataset was balanced and preprocessed, containing clean text posts with associated MBTI types. This prepared data was then used for model training and evaluation.
 
 ### Methodology
 
-**SentenceTransformer:**
-The SentenceTransformer model was used to generate semantic embeddings from the text posts, providing a context-aware representation of the data.
+Holdout cross-validation was employed, where models were trained on a training set and validated on a test set. Additionally, GridSearchCV was utilized to evaluate models using accuracy score and to fine-tune each model's hyperparameters to optimize this metric. Accuracy is an appropriate measure because we have a balanced dataset; it calculates the proportion of correctly predicted observations out of the total observations, given by:
 
-**Lemmatization and TFIDF:**
-Text posts were lemmatized to their base forms, and TF-IDF vectorization was applied to capture the importance of terms within the posts.
+$$
+\frac{TP + TN}{TP + TN + FP + FN}
+$$
+
+It was decided to evaluate two approaches towards feature representation, namely SentenceTransformer and TfidfVectorizer. 
+
+**SentenceTransformer** provides semantic understanding and context awareness, such as sentiment analysis or detecting nuanced similarities between texts.**TfidfVectorizer**, on the other hand, measures term importance and frequency. Before vectorization with TfidfVectorizer, lemmatization was performed on the dataset for normalization, accuracy, and performance purposes. This was not necessary for the SentenceTransformer approach as it processes sentences as a whole as opposed to individual words in the case of TfidfVectorizer.
+
+Evaluating both approaches allows for a comprehensive assessment of feature representations, helping to identify the most effective approach for improving model accuracy and performance across various text classification tasks. This dual evaluation ensures that models are robust, contextually aware, and capable of capturing both semantic meaning and term importance.
+
+For both the SentenceTransformer and TfidVectorizer approached five models were trained, fine-tuned, and compared to determine the best model(s) for this task. The following models were used:
 
 **Logistic Regression:**
 This model was tuned using GridSearchCV, evaluating different penalties and solvers to optimize performance on the training set.
