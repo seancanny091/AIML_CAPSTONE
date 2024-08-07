@@ -24,9 +24,9 @@ In contrast, the SentenceTransformer approach did not perform as well. The highe
 While the Lemmatization + TF-IDF approach provides a more effective feature representation for MBTI classification from text posts compared to SentenceTransformer, neither approach achieved sufficiently high accuracy to be used reliably in real-life applications. The highest accuracy of 0.5735 indicates that there is still significant room for improvement in predicting MBTI types from text.
 
 **Next Steps and Recommendations:**  
-Leverage Deep Learning Models:
-* Neural Networks: CNNs or RNNs could capture more complex text patterns.
-* Transformers: Models like BERT or GPT, known for state-of-the-art NLP performance, could enhance results.
+* Leverage Deep Learning Models:
+** Neural Networks: CNNs or RNNs could capture more complex text patterns.
+** Transformers: Models like BERT or GPT, known for state-of-the-art NLP performance, could enhance results.
 
 Hybrid Approaches:  
 * Combine TF-IDF with neural embeddings for richer text representation.
