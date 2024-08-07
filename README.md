@@ -4,7 +4,7 @@
 
 **Project Overview and Goals:**  
 The goal of this project is to identify an effective way to determine a person's Myers-Briggs Type Indicator (MBTI) based on their text posts. We will be training and tuning several classification models to accurately classify social media posts according to MBTI types. Models will be able to predict, from future/unseen posts, the MBTI type of their writer. We will then evaluate and compare the models' performances to identify the best one and further scrutinize it to find the most effective features (words) that enhance performance in this classification task. Insights will be drawn from this model by conducting a global analysis, using various libraries to identify the most important words/features used for making accurate predictions. We will also be locally analyzing this model and evaluating its class prediction process for individual posts. Lastly, we will draw insights from our analyses and recommend areas to research and courses to undertake for future work in determining MBTI from text posts.
-
+  
 **Findings:**  
 The best model for determining a person's Myers-Briggs Type Indicator (MBTI) from text posts is the Support Vector Classifier (SVC) model, using Lemmatization + TF-IDF, with an accuracy score of 0.5735, a recall of 0.5735, and an F1 score of 0.572964. Its performance is followed by the Random Forest model, Logistic Regression model, and the Naive Bayes model. This decision is based on comparing the finetuned models' accuracy, recall, and F1 scores (results summary below). The SVC model has the best overall performance metrics, including accuracy, recall, and F1 score. In terms of errors, the Logistic Regression model has a balanced number of false positives (FP) and false negatives (FN), the Naive Bayes model has more FPs than FNs, the Decision Tree model has a similar count of FP and FN, and the SVC model maintains a slightly higher number of FPs compared to FNs.
 
@@ -22,23 +22,23 @@ In contrast, the SentenceTransformer approach did not perform as well. The highe
 [![SntTrnfrmrConfMat.png](https://Images/SntTrnfrmrConfMat.png)
 
 While the Lemmatization + TF-IDF approach provides a more effective feature representation for MBTI classification from text posts compared to SentenceTransformer, neither approach achieved sufficiently high accuracy to be used reliably in real-life applications. The highest accuracy of 0.5735 indicates that there is still significant room for improvement in predicting MBTI types from text.
-
+  
 **Next Steps and Recommendations:**  
 * Leverage Deep Learning Models:  
   * Neural Networks: CNNs or RNNs could capture more complex text patterns.
   * Transformers: Models like BERT or GPT, known for state-of-the-art NLP performance, could enhance results.
 
-Hybrid Approaches:  
-* Combine TF-IDF with neural embeddings for richer text representation.
+* Hybrid Approaches:  
+  * Combine TF-IDF with neural embeddings for richer text representation.
 
-Data Augmentation:  
-* Increase dataset size and diversity with techniques like paraphrasing and back-translation. This is especially applicable for the MTBI types for which we have fewer data such as ESTP, ESFP, ESFJ, and ESTJ.
+* Data Augmentation:  
+  * Increase dataset size and diversity with techniques like paraphrasing and back-translation. This is especially applicable for the MTBI types for which we have fewer data such as ESTP, ESFP, ESFJ, and ESTJ.
 
-Ensemble Methods:  
-* Use ensemble techniques like stacking or boosting to improve robustness and accuracy.
+* Ensemble Methods:  
+  * Use ensemble techniques like stacking or boosting to improve robustness and accuracy.
 
-Feature Engineering:  
-* Explore additional features like sentiment analysis, topic modeling, and linguistic features.
+* Feature Engineering:  
+  * Explore additional features like sentiment analysis, topic modeling, and linguistic features.
 
 By implementing these advanced techniques, we can aim for more accurate and reliable MBTI prediction models suitable for real-life applications.
 
@@ -89,18 +89,28 @@ For both the SentenceTransformer and TfidVectorizer approached five models were 
 
 **Logistic Regression:**  
 This model was tuned using GridSearchCV, evaluating different penalties and solvers to optimize performance on the training set.
-
+ *SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+ *Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+  
 **SVC:**  
 Support Vector Classifier was applied with linear and RBF kernels, aiming to find the best separating hyperplane for the MBTI types.
-
+ *SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+ *Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+   
 **Decision Tree:**  
 Decision Tree models were evaluated with varying depths and minimum samples splits to determine the best structure for classification.
+ *SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+ *Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
 
 **Naive Bayes:**  
 Both Gaussian and Multinomial Naive Bayes models were tested, focusing on different assumptions about the distribution of features.
+*SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+*Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
 
 **Random Forest:**  
 Random Forest models were trained with various numbers of estimators and depths, leveraging ensemble learning to enhance predictive accuracy.
-
+ *SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+ *Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+ 
 ### Model Evaluation and Results  
 The models were evaluated based on accuracy, recall, F1 score, and confusion matrices. Results showed that the Random Forest and SVC models provided the highest accuracy and balanced performance. Confusion matrices for each model illustrated their ability to correctly classify INFP and INFJ types, with detailed classification reports highlighting the precision and recall for each class. The use of both SentenceTransformer embeddings and TF-IDF vectorization provided a comprehensive evaluation, ensuring that the models captured both semantic meaning and term importance.
