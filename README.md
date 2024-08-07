@@ -14,7 +14,6 @@ In this project, we explored two different approaches to determine a person's My
 The Lemmatization + TF-IDF approach outperformed the SentenceTransformer approach across all models. The Support Vector Classifier (SVC) using Lemmatization + TF-IDF achieved the highest accuracy score of 0.5735, recall of 0.5735, and F1 score of 0.572964. This was followed by the Decision Tree and Random Forest models, which also showed strong performance with accuracy scores of 0.5710 and 0.5665, respectively.
 
 [![TFIDFModelResults.png](https://Images/TFIDFModelResults.png)
-[![TFIDFConfMat.png](https://Images/TFIDFConfMat.png)
 
 In contrast, the SentenceTransformer approach did not perform as well. The highest accuracy was observed with the SVC model, achieving a score of 0.5525, while the Random Forest model achieved an accuracy of 0.5515. These results indicate that the Lemmatization + TF-IDF approach captures the textual features more effectively for this particular classification task.
 
@@ -89,28 +88,43 @@ For both the SentenceTransformer and TfidVectorizer approached five models were 
 
 **Logistic Regression:**  
 This model was tuned using GridSearchCV, evaluating different penalties and solvers to optimize performance on the training set.
- *SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
- *Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
-  
+ * SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+ * Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'saga'}
+
+[![SnTrnfrmrLRConfMat.png](https://Images/SnTrnfrmrLRConfMat.png)  
+[![TFIDFLRConfMat.png](https://Images/TFIDFLRConfMat.png)
+
 **SVC:**  
 Support Vector Classifier was applied with linear and RBF kernels, aiming to find the best separating hyperplane for the MBTI types.
- *SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
- *Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+ * SentenceTransformer approach: Optimized hyperparameters - {'kernel': 'rbf'}  
+ * Lemmatization + TFIDF approach: Optimized hyperparameters - {'kernel': 'rbf'}
+
+[![SnTrnfrmrSVCConfMat.png](https://Images/SnTrnfrmrSVCConfMat.png)  
+[![TFIDFSVCConfMat.png](https://Images/TFIDFSVCConfMat.png)
    
 **Decision Tree:**  
 Decision Tree models were evaluated with varying depths and minimum samples splits to determine the best structure for classification.
- *SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
- *Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+ * SentenceTransformer approach: Optimized hyperparameters - {'max_depth': 50, 'min_samples_split': 10}
+ * Lemmatization + TFIDF approach: Optimized hyperparameters -{'max_depth': None, 'min_samples_split': 2}
+
+[![SnTrnfrmrDTConfMat.png](https://Images/SnTrnfrmrDTConfMat.png)  
+[![TFIDFDTConfMat.png](https://Images/TFIDFDTConfMat.png)
 
 **Naive Bayes:**  
 Both Gaussian and Multinomial Naive Bayes models were tested, focusing on different assumptions about the distribution of features.
-*SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
-*Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+* SentenceTransformer approach: Optimized hyperparameters - {} (GaussianNB was used due to negative values in embeddings)
+* Lemmatization + TFIDF approach: Optimized hyperparameters - {'alpha': 10} (MultinomialNB was used)
+
+[![SnTrnfrmrNBConfMat.png](https://Images/SnTrnfrmrNBConfMat.png)  
+[![TFIDFNBConfMat.png](https://Images/TFIDFNBConfMat.png)
 
 **Random Forest:**  
 Random Forest models were trained with various numbers of estimators and depths, leveraging ensemble learning to enhance predictive accuracy.
- *SentenceTransformer approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
- *Lemmatization + TFIDF approach: Optimized hyperparameters - {'penalty': 'l1', 'solver': 'liblinear'} 
+ * SentenceTransformer approach: Optimized hyperparameters - {'max_depth': 50, 'min_samples_split': 10, 'n_estimators': 200}
+ * Lemmatization + TFIDF approach: Optimized hyperparameters - {'max_depth': None, 'min_samples_split': 10, 'n_estimators': 100}
+
+[![SnTrnfrmrRFConfMat.png](https://Images/SnTrnfrmrRFConfMat.png)  
+[![TFIDFRFConfMat.png](https://Images/TFIDFRFConfMat.png)
  
 ### Model Evaluation and Results  
 The models were evaluated based on accuracy, recall, F1 score, and confusion matrices. Results showed that the Random Forest and SVC models provided the highest accuracy and balanced performance. Confusion matrices for each model illustrated their ability to correctly classify INFP and INFJ types, with detailed classification reports highlighting the precision and recall for each class. The use of both SentenceTransformer embeddings and TF-IDF vectorization provided a comprehensive evaluation, ensuring that the models captured both semantic meaning and term importance.
