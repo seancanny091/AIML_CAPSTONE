@@ -62,9 +62,9 @@ Data cleaning involved converting text to lowercase, parsing posts into separate
 **Preprocessing:**  
 The dataset was filtered to focus on INFP and INFJ types, balancing the data to improve model performance. Text data was then prepared using two methods: SentenceTransformer for generating embeddings and TF-IDF vectorization for capturing term frequency and importance.
 
-![INFJINFPPreBal.png](/Images/INFJINFPPreBal.png)  
+![INFPINFJPreBal.png](/Images/INFPINFJPreBal.png)  
 
-![INFJINFPPostBal.png](/Images/INFJINFPPostBal.png)  
+![INFPINFJPostBal.png](/Images/INFPINFJPostBal.png)  
 
 **Final Dataset:**  
 The final dataset was balanced and preprocessed, containing clean text posts with associated MBTI types. This prepared data was then used for model training and evaluation.
