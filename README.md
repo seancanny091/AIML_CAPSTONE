@@ -4,10 +4,12 @@
 
 **Project Overview and Goals:**  
 The goal of this project is to identify an effective way to determine a person's Myers-Briggs Type Indicator (MBTI) based on their text posts. We will be training and tuning several classification models to accurately classify social media posts according to MBTI types. Models will be able to predict, from future/unseen posts, the MBTI type of their writer. We will then evaluate and compare the models' performances to identify the best one and further scrutinize it to find the most effective features (words) that enhance performance in this classification task. Insights will be drawn from this model by conducting a global analysis, using various libraries to identify the most important words/features used for making accurate predictions. We will also be locally analyzing this model and evaluating its class prediction process for individual posts. Lastly, we will draw insights from our analyses and recommend areas to research and courses to undertake for future work in determining MBTI from text posts.
+
   
 **Findings:**  
 The best model for determining a person's Myers-Briggs Type Indicator (MBTI) from text posts is the Support Vector Classifier (SVC) model, using Lemmatization + TF-IDF, with an accuracy score of 0.5735, a recall of 0.5735, and an F1 score of 0.572964. Its performance is followed by the Random Forest model, Logistic Regression model, and the Naive Bayes model. This decision is based on comparing the finetuned models' accuracy, recall, and F1 scores (results summary below). The SVC model has the best overall performance metrics, including accuracy, recall, and F1 score. In terms of errors, the Logistic Regression model has a balanced number of false positives (FP) and false negatives (FN), the Naive Bayes model has more FPs than FNs, the Decision Tree model has a similar count of FP and FN, and the SVC model maintains a slightly higher number of FPs compared to FNs.
 
+  
 **Results and Conclusion:**  
 In this project, we explored two different approaches to determine a person's Myers-Briggs Type Indicator (MBTI) from text posts: SentenceTransformer embeddings and Lemmatization + TF-IDF vectorization.
 
@@ -40,13 +42,16 @@ While the Lemmatization + TF-IDF approach provides a more effective feature repr
 
 By implementing these advanced techniques, we can aim for more accurate and reliable MBTI prediction models suitable for real-life applications.
 
+  
 ### Rationale  
 Understanding a person's Myers-Briggs Type Indicator (MBTI) from their text posts provides numerous compelling benefits and applications. Utilizing this capability allows organizations and researchers to gain deeper insights into individual personality traits, which can be applied in various domains. This opens up a wide range of opportunities across multiple fields. From personalized marketing and enhanced user experiences to improved team dynamics and advanced psychological research, the potential applications are extensive and impactful. By recognizing and addressing the diverse personality traits of individuals, organizations can achieve higher engagement, satisfaction, and success.
 
+    
 ### Data Sources  
 **Dataset**  
 The dataset was sourced from Kaggle (https://www.kaggle.com/datasets/datasnaek/mbti-type), containing over 8600 rows of MBTI types and their corresponding social media posts. Each entry provided a rich text-based profile for analysis.
 
+    
 **Exploratory Data Analysis:**  
 Initial exploration involved understanding the data distribution and identifying the unique MBTI types. Visualizations highlighted the imbalance among different personality types, guiding subsequent preprocessing steps.
 
@@ -68,7 +73,8 @@ The dataset was filtered to focus on INFP and INFJ types, balancing the data to 
 
 **Final Dataset:**  
 The final dataset was balanced and preprocessed, containing clean text posts with associated MBTI types. This prepared data was then used for model training and evaluation.
-
+  
+  
 ### Methodology  
 
 Holdout cross-validation was employed, where models were trained on a training set and validated on a test set. Additionally, GridSearchCV was utilized to evaluate models using accuracy score and to fine-tune each model's hyperparameters to optimize this metric. Accuracy is an appropriate measure because we have a balanced dataset; it calculates the proportion of correctly predicted observations out of the total observations, given by:
@@ -109,8 +115,8 @@ Both Gaussian and Multinomial Naive Bayes models were tested, focusing on differ
 Random Forest models were trained with various numbers of estimators and depths, leveraging ensemble learning to enhance predictive accuracy.
  * SentenceTransformer approach: Optimized hyperparameters - {'max_depth': 50, 'min_samples_split': 10, 'n_estimators': 200}
  * Lemmatization + TFIDF approach: Optimized hyperparameters - {'max_depth': None, 'min_samples_split': 10, 'n_estimators': 100}
-
   
+    
 ### Model Evaluation and Results  
 
 The models were evaluated based on accuracy, recall, F1 score, and confusion matrices. Results showed that the Random Forest and SVC models provided the highest accuracy and balanced performance. Confusion matrices for each model illustrated their ability to correctly classify INFP and INFJ types, with detailed classification reports highlighting the precision and recall for each class. The use of both SentenceTransformer embeddings and TF-IDF vectorization provided a comprehensive evaluation, ensuring that the models captured both semantic meaning and term importance.
@@ -153,5 +159,3 @@ Lemmatization + TF-IDF approach: Speed = 80.851408, Accuracy = 0.5665, Recall = 
 ![TFIDFRFConfMat.png](/Images/TFIDFRFConfMat.png)  
   
 A comprehensive analysis and assessment of the top-performing model are provided in the Results and Conclusions section of the Executive Summary above.
-
-
