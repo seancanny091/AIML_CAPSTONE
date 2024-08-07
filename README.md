@@ -3,19 +3,39 @@
 ### Executive Summary
 
 **Project Overview and Goals:**
-The project aims identify an effective way to determine an individual's Myers-Briggs Type Indicator (MBTI) based on their text posts, leveraging machine learning models to analyze and predict personality traits. This capability has applications in targeted marketing, personalized content, and psychological research.
+The goal of this project is to identify an effective way to determine a person's Myers-Briggs Type Indicator (MBTI) based on their text posts. We will be training and tuning several classification models to accurately classify social media posts according to MBTI types. Models will be able to predict, from future/unseen posts, the MBTI type of their writer. We will then evaluate and compare the models' performances to identify the best one and further scrutinize it to find the most effective features (words) that enhance performance in this classification task. Insights will be drawn from this model by conducting a global analysis, using various libraries to identify the most important words/features used for making accurate predictions. We will also be locally analyzing this model and evaluating its class prediction process for individual posts. Lastly, we will draw insights from our analyses and recommend areas to research and courses to undertake for future work in determining MBTI from text posts.
 
 **Findings:**
-Through extensive data processing and model training, significant insights were gained into the relationship between text patterns and MBTI types. Focusing on the two most common MBTI types, INFP and INFJ, allowed for efficient model training and evaluation.
+The best model for determining a person's Myers-Briggs Type Indicator (MBTI) from text posts is the Support Vector Classifier (SVC) model, using Lemmatization + TF-IDF, with an accuracy score of 0.5735, a recall of 0.5735, and an F1 score of 0.572964. Its performance is followed by the Random Forest model, Logistic Regression model, and the Naive Bayes model. This decision is based on comparing the finetuned models' accuracy, recall, and F1 scores (results summary below). The SVC model has the best overall performance metrics, including accuracy, recall, and F1 score. In terms of errors, the Logistic Regression model has a balanced number of false positives (FP) and false negatives (FN), the Naive Bayes model has more FPs than FNs, the Decision Tree model has a similar count of FP and FN, and the SVC model maintains a slightly higher number of FPs compared to FNs.
 
 **Results and Conclusion:**
-Several classification models were evaluated, including Logistic Regression, SVC, Decision Trees, Naive Bayes, and Random Forests. Both SentenceTransformer embeddings and TF-IDF vectorization approaches were used. The models showed promising results, with Random Forest and SVC providing the highest accuracy and balanced performance.
+In this project, we explored two different approaches to determine a person's Myers-Briggs Type Indicator (MBTI) from text posts: SentenceTransformer embeddings and Lemmatization + TF-IDF vectorization.
 
-**Future Research and Development:**
-Future work should focus on incorporating the full range of MBTI types and experimenting with advanced deep learning techniques to further improve prediction accuracy. Additionally, expanding the dataset and exploring other feature extraction methods could enhance model robustness.
+The Lemmatization + TF-IDF approach outperformed the SentenceTransformer approach across all models. The Support Vector Classifier (SVC) using Lemmatization + TF-IDF achieved the highest accuracy score of 0.5735, recall of 0.5735, and F1 score of 0.572964. This was followed by the Decision Tree and Random Forest models, which also showed strong performance with accuracy scores of 0.5710 and 0.5665, respectively.
+
+In contrast, the SentenceTransformer approach did not perform as well. The highest accuracy was observed with the SVC model, achieving a score of 0.5525, while the Random Forest model achieved an accuracy of 0.5515. These results indicate that the Lemmatization + TF-IDF approach captures the textual features more effectively for this particular classification task.
+
+While the Lemmatization + TF-IDF approach provides a more effective feature representation for MBTI classification from text posts compared to SentenceTransformer, neither approach achieved sufficiently high accuracy to be used reliably in real-life applications. The highest accuracy of 0.5735 indicates that there is still significant room for improvement in predicting MBTI types from text.
 
 **Next Steps and Recommendations:**
-It is recommended to integrate the developed models into real-world applications for further validation and refinement. Continuous monitoring and updating of the models with new data will ensure sustained accuracy and relevance.
+Leverage Deep Learning Models:
+
+* Neural Networks: CNNs or RNNs could capture more complex text patterns.
+* Transformers: Models like BERT or GPT, known for state-of-the-art NLP performance, could enhance results.
+
+Hybrid Approaches:
+* Combine TF-IDF with neural embeddings for richer text representation.
+
+Data Augmentation:
+* Increase dataset size and diversity with techniques like paraphrasing and back-translation.
+
+Ensemble Methods:
+* Use ensemble techniques like stacking or boosting to improve robustness and accuracy.
+
+Feature Engineering:
+* Explore additional features like sentiment analysis, topic modeling, and linguistic features.
+
+By implementing these advanced techniques, we can aim for more accurate and reliable MBTI prediction models suitable for real-life applications.
 
 ### Rationale
 Understanding a person's Myers-Briggs Type Indicator (MBTI) from their text posts provides numerous compelling benefits and applications. Utilizing this capability allows organizations and researchers to gain deeper insights into individual personality traits, which can be applied in various domains. This opens up a wide range of opportunities across multiple fields. From personalized marketing and enhanced user experiences to improved team dynamics and advanced psychological research, the potential applications are extensive and impactful. By recognizing and addressing the diverse personality traits of individuals, organizations can achieve higher engagement, satisfaction, and success.
