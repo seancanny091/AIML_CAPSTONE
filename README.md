@@ -18,7 +18,6 @@ The Lemmatization + TF-IDF approach outperformed the SentenceTransformer approac
 In contrast, the SentenceTransformer approach did not perform as well. The highest accuracy was observed with the SVC model, achieving a score of 0.5525, while the Random Forest model achieved an accuracy of 0.5515. These results indicate that the Lemmatization + TF-IDF approach captures the textual features more effectively for this particular classification task.
 
 [![SntTrnfrmrModelResults.png](https://Images/SntTrnfrmrModelResults.png)
-[![SntTrnfrmrConfMat.png](https://Images/SntTrnfrmrConfMat.png)
 
 While the Lemmatization + TF-IDF approach provides a more effective feature representation for MBTI classification from text posts compared to SentenceTransformer, neither approach achieved sufficiently high accuracy to be used reliably in real-life applications. The highest accuracy of 0.5735 indicates that there is still significant room for improvement in predicting MBTI types from text.
   
