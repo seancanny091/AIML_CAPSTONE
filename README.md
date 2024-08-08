@@ -159,3 +159,11 @@ Lemmatization + TF-IDF approach: Speed = 80.851408, Accuracy = 0.5665, Recall = 
 ![TFIDFRFConfMat.png](/Images/TFIDFRFConfMat.png)  
   
 A comprehensive analysis and assessment of the top-performing model are provided in the Results and Conclusions section of the Executive Summary above.
+
+### Project Resources
+
+[Link to MTBI Dataset](/Data/mtbi_1.csv)  
+  
+[Link to Jupyter Notebook](/AIML_Capstone_MBTI_Predictor.ipynb)  
+  
+[Link to presentation pdf](/Using%20Text%20Classification%20to%20Determine%20a%20Person%E2%80%99s%20Myers%20Briggs%20Personality%20Type%20Indicator.pdf)
