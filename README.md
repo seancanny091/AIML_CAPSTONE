@@ -162,7 +162,7 @@ A comprehensive analysis and assessment of the top-performing model are provided
 
 ### Project Resources
 
-[Link to MTBI Dataset](/Data/mtbi_1.csv)  
+[Link to MTBI Dataset](/Data/mbti_1.csv)  
   
 [Link to Jupyter Notebook](/AIML_Capstone_MBTI_Predictor.ipynb)  
   
